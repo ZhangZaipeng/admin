@@ -1,7 +1,7 @@
 <!-- 共用头部模板 -->
 <#include "public/top.ftl"/>
 
-<body class="layui-layout-body">
+<body class="layui-layout-body" layadmin-themealias="green-header">
 <div id="LAY_app">
   <div class="layui-layout layui-layout-admin">
     <div class="layui-header">

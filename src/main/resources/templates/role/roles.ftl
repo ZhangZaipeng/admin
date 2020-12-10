@@ -14,8 +14,8 @@
           </div>
         </div>
         <div class="layui-inline">
-          <button class="layui-btn layuiadmin-btn-admin" lay-submit
-                  lay-filter="LAY-user-back-search">
+          <button id="LAY-role-back-search" class="layui-btn layuiadmin-btn-admin" lay-submit
+                  lay-filter="LAY-role-back-search">
             <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
           </button>
         </div>
@@ -27,20 +27,8 @@
         <button class="layui-btn layuiadmin-btn-role" data-type="add">添加</button>
       </div>
 
-      <table id="LAY-user-back-role" lay-filter="LAY-user-back-role"></table>
-      <script type="text/html" id="buttonTpl">
-        {{#  if(d.check == true){ }}
-        <button class="layui-btn layui-btn-xs">已审核</button>
-        {{#  } else { }}
-        <button class="layui-btn layui-btn-primary layui-btn-xs">未审核</button>
-        {{#  } }}
-      </script>
-      <script type="text/html" id="table-useradmin-admin">
-        <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit"><i
-              class="layui-icon layui-icon-edit"></i>编辑</a>
-        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i
-              class="layui-icon layui-icon-delete"></i>删除</a>
-      </script>
+      <table class="layui-hide" id="LAY-user-back-role" lay-filter="LAY-user-back-role"></table>
+
     </div>
   </div>
 </div>
@@ -52,13 +40,47 @@
     base: '${request.contextPath}/static/lib/layuiadmin/' //静态资源所在路径
   }).extend({
     index: 'lib/index' //主入口模块
-  }).use(['index', 'useradmin', 'table'], function () {
-    var $ = layui.$
-        , form = layui.form
-        , table = layui.table;
+  }).use(['index', 'table'], function () {
+    var $ = layui.$, form = layui.form, table = layui.table;
+
+    // 方法级渲染
+    table.render({
+      elem: '#LAY-user-back-role'
+      , url: '${request.contextPath}/system/roles.json'
+      , parseData: function (res) {
+        if (res.code == 200) {
+          return {
+            "code": 0, //解析接口状态
+            "msg": res.msg, //解析提示文本
+            "count": 200, //解析数据长度
+            "data": res.data //解析数据列表
+          };
+        }
+
+        return {
+          "code": 100, //解析接口状态
+          "msg": "数据请求错误", //解析提示文本
+          "count": 0, //解析数据长度
+          "data": null //解析数据列表
+        };
+      }
+      , cols: [[
+        {checkbox: true, fixed: true}
+        , {field: 'roleId', title: 'ID', width: 80}
+        , {field: 'roleCode', title: '权限编码', width: 100}
+        , {field: 'roleName', title: '权限名称', width: 100}
+        , {field: 'status', title: '状态', width: 80}
+        , {field: 'remark', title: '描述'}
+        , {field: 'createTime', title: '创建时间', width: 150}
+        , {field: 'updateTime', title: '更新时间', width: 150}
+      ]]
+      , id: 'LAY-role-back-search'
+      , page: true
+      , height: 310
+    });
 
     //搜索角色
-    form.on('select(LAY-user-adminrole-type)', function (data) {
+    form.on('select(LAY-role-back-search)', function (data) {
       //执行重载
       table.reload('LAY-user-back-role', {
         where: {

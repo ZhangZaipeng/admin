@@ -1,5 +1,6 @@
 package com.example.admin.controller;
 
+import com.example.admin.common.response.ResponseModel;
 import com.example.admin.entity.SystemRole;
 import com.example.admin.service.SystemAdminService;
 import java.util.HashMap;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -37,6 +39,15 @@ public class SystemController {
     datas.put("roleList", systemRoles);
 
     return new ModelAndView("role/roles", datas);
+  }
+
+  @RequestMapping("/roles.json")
+  @ResponseBody
+  public ResponseModel rolesListData() {
+
+    List<SystemRole> systemRoles = systemAdminService.rolesList();
+
+    return ResponseModel.ok(systemRoles);
   }
 
   /**
