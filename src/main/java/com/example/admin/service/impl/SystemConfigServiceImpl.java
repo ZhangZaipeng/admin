@@ -6,8 +6,6 @@ import org.springframework.stereotype.Service;
 
 /**
  * @Description ：
- * @Tauthor ZhangZaipeng
- * @Tdata 2020/12/9   11:23
  */
 @Service
 public class SystemConfigServiceImpl implements SystemConfigService {

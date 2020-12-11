@@ -2,11 +2,11 @@ package com.example.admin.service;
 
 import com.example.admin.entity.SystemAdmin;
 import com.example.admin.entity.SystemRole;
+import com.github.pagehelper.PageInfo;
 import java.util.List;
 
 /**
  * @Description ：
- * @Tauthor ZhangZaipeng
  */
 public interface SystemAdminService {
 
@@ -16,6 +16,6 @@ public interface SystemAdminService {
 
   int loginSuccess(SystemAdmin updateSystemAdmin);
 
-  List<SystemRole> rolesList();
+  PageInfo<SystemRole> rolesList(Integer currentPage, Integer limitSize, String roleName);
 
 }

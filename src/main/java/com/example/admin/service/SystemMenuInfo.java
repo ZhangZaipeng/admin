@@ -1,8 +1,6 @@
 package com.example.admin.service;
 
 /**
- * @Description ：
- * @Tauthor ZhangZaipeng
  */
 public class SystemMenuInfo {
 

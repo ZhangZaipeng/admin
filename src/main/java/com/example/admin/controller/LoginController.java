@@ -31,7 +31,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @Description ：
- * @Tauthor ZhangZaipeng
  */
 @Controller
 @RequestMapping("/login")

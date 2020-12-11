@@ -142,6 +142,9 @@
   </update>
 
   <select id="rolesList" resultMap="BaseResultMap">
-    select * from tb_system_role
+    select * from tb_system_role where 1 = 1
+    <if test="roleName != null and roleName != ''">
+      and role_name like CONCAT('%', #{roleName}, '%')
+    </if>
   </select>
 </mapper>

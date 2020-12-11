@@ -7,6 +7,8 @@ import com.example.admin.mapper.SystemPermissionMapper;
 import com.example.admin.mapper.SystemRoleMapper;
 import com.example.admin.service.SystemAdminService;
 import com.example.admin.service.SystemMenuInfo;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,6 @@ import org.springframework.stereotype.Service;
 
 /**
  * @Description ：
- * @Tauthor ZhangZaipeng
  */
 @Service
 public class SystemAdminServiceImpl implements SystemAdminService {
@@ -67,7 +68,12 @@ public class SystemAdminServiceImpl implements SystemAdminService {
   }
 
   @Override
-  public List<SystemRole> rolesList() {
-    return systemRoleMapper.rolesList();
+  public PageInfo<SystemRole> rolesList(Integer currentPage, Integer limitSize, String roleName) {
+    PageHelper.startPage(currentPage, limitSize);
+
+    List<SystemRole> systemRoles = systemRoleMapper.rolesList(roleName);
+
+    PageInfo<SystemRole> pageInfo = new PageInfo<SystemRole>(systemRoles);
+    return pageInfo;
   }
 }

@@ -3,6 +3,7 @@ package com.example.admin.mapper;
 import com.example.admin.config.mybatis.DefaultMapper;
 import com.example.admin.entity.SystemRole;
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface SystemRoleMapper extends DefaultMapper {
 
@@ -18,5 +19,5 @@ public interface SystemRoleMapper extends DefaultMapper {
 
   int updateByPrimaryKey(SystemRole record);
 
-  List<SystemRole> rolesList();
+  List<SystemRole> rolesList(@Param("roleName") String roleName);
 }

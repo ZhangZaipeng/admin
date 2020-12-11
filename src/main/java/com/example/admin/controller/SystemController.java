@@ -3,6 +3,7 @@ package com.example.admin.controller;
 import com.example.admin.common.response.ResponseModel;
 import com.example.admin.entity.SystemRole;
 import com.example.admin.service.SystemAdminService;
+import com.github.pagehelper.PageInfo;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,8 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @Description ：
- * @Tauthor ZhangZaipeng
- * @Tdata 2020/12/10   15:23
  */
 @Controller
 @RequestMapping("/system")
@@ -27,32 +26,24 @@ public class SystemController {
 
   /**
    * 角色列表
-   * @return
    */
   @RequestMapping("/roles.htm")
   public ModelAndView rolesList() {
-
-    Map<String,Object> datas = new HashMap<>();
-
-    List<SystemRole> systemRoles = systemAdminService.rolesList();
-
-    datas.put("roleList", systemRoles);
-
-    return new ModelAndView("role/roles", datas);
+    return new ModelAndView("role/roles");
   }
 
   @RequestMapping("/roles.json")
   @ResponseBody
-  public ResponseModel rolesListData() {
+  public ResponseModel rolesListData(Integer currentPage, Integer limitSize, String roleName) {
 
-    List<SystemRole> systemRoles = systemAdminService.rolesList();
+    PageInfo<SystemRole> systemRoles = systemAdminService
+        .rolesList(currentPage, limitSize, roleName);
 
     return ResponseModel.ok(systemRoles);
   }
 
   /**
    * 权限列表
-   * @return
    */
   @RequestMapping("/roleform.htm")
   public ModelAndView roleform() {
