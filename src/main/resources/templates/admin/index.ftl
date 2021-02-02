@@ -1,5 +1,5 @@
 <!-- 共用头部模板 -->
-<#include "public/top.ftl"/>
+<#include "../common/top.ftl"/>
 
 <body class="layui-layout-body" layadmin-themealias="green-header">
 <div id="LAY_app">
@@ -38,16 +38,10 @@
           <a href="javascript:;">
             <cite>${admin.realName!""}</cite>
           </a>
-          <dl class="layui-nav-child">
-            <dd><a lay-href="set/user/info.html">基本资料</a></dd>
-            <dd><a lay-href="set/user/password.html">修改密码</a></dd>
-            <hr>
-            <dd layadmin-event="logout" style="text-align: center;"><a>退出</a></dd>
-          </dl>
         </li>
 
-        <li class="layui-nav-item layui-hide-xs" lay-unselect>
-          <a href="javascript:;"><i class="layui-icon layui-icon-more-vertical"></i></a>
+        <li class="layui-nav-item" lay-unselect>
+          <a href="javascript:;"><i class="layui-icon layui-icon-logout"></i></a>
         </li>
       </ul>
     </div>
@@ -137,6 +131,6 @@
 </body>
 
 <!-- 共用头部模板 -->
-<#include "public/bottom.ftl"/>
+<#include "../common/bottom.ftl"/>
 
 

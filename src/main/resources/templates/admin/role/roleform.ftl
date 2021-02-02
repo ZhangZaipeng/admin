@@ -1,5 +1,5 @@
 <!-- 共用头部模板 -->
-<#include "../public/top.ftl"/>
+<#include "../../common/top.ftl"/>
 
 <body>
 <div class="layui-form" lay-filter="layuiadmin-form-role" id="layuiadmin-form-role"
@@ -142,4 +142,4 @@
 </body>
 
 <!-- 共用头部模板 -->
-<#include "../public/bottom.ftl"/>
+<#include "../../common/bottom.ftl"/>

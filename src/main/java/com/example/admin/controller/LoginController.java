@@ -61,7 +61,7 @@ public class LoginController {
     if (subject.isAuthenticated()) {
       return new ModelAndView("redirect:/index.htm");
     }
-    return new ModelAndView("login");
+    return new ModelAndView("admin/login");
   }
 
   @RequestMapping(method = RequestMethod.POST, value = "/doLogin.json")

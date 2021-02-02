@@ -1,5 +1,5 @@
 <!-- 共用头部模板 -->
-<#include "../public/top.ftl"/>
+<#include "../../common/top.ftl"/>
 
 <body>
 <div class="layui-fluid">
@@ -102,4 +102,4 @@
 </body>
 
 <!-- 共用头部模板 -->
-<#include "../public/bottom.ftl"/>
+<#include "../../common/bottom.ftl"/>

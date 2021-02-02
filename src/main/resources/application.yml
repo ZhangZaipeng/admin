@@ -14,7 +14,7 @@ server:
 # javamelody
 javamelody:
   init-parameters:
-    storage-directory: web
+    storage-directory: admin
 
 # 激活配置文件
 spring:

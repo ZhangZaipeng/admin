@@ -4,7 +4,6 @@ import com.example.admin.common.tools.YvanUtil;
 import com.example.admin.entity.SystemAdmin;
 import com.example.admin.mapper.SystemAdminMapper;
 import com.example.admin.service.SystemAdminService;
-import java.util.ArrayList;
 import java.util.List;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;

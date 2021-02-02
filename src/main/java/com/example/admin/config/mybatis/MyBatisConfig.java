@@ -1,7 +1,6 @@
 package com.example.admin.config.mybatis;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInterceptor;
 import java.util.Properties;
 import javax.sql.DataSource;
@@ -18,7 +17,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
  */
 @Configuration
 public class MyBatisConfig {
-  private static final String MAPPER_LOCATION = "classpath*:com/example/**/*Mapper.xml";
+  private static final String MAPPER_LOCATION = "classpath*:com/example/admin/**/*Mapper.xml";
 
   @Bean
   @ConfigurationProperties(prefix = "spring.datasource")

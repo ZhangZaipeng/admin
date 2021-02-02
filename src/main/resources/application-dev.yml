@@ -24,7 +24,7 @@ spring:
       maxFileSize: 100Mb
       maxRequestSize: 100Mb
   redis:
-    host: 114.55.249.243
+    host: 115.159.214.69
     port: 46379
     password: 123456
     pool:

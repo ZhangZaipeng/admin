@@ -627,9 +627,9 @@ public class BCrypt {
   }
 
   public static void main(String[] args) {
-    String cryptString1 = BCrypt.hashpw("13396046865", BCrypt.gensalt());
-    String cryptString2 = BCrypt.hashpw("13396046865", BCrypt.gensalt());
-    String cryptString3 = BCrypt.hashpw("13396046865", BCrypt.gensalt());
+    String cryptString1 = BCrypt.hashpw("123456", BCrypt.gensalt());
+    String cryptString2 = BCrypt.hashpw("123456", BCrypt.gensalt());
+    String cryptString3 = BCrypt.hashpw("123456", BCrypt.gensalt());
 
     System.out.println(cryptString1);
     System.out.println(cryptString2);

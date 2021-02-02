@@ -1,33 +1,21 @@
 package com.example.admin.controller;
 
 import com.example.admin.common.constant.Const;
-import com.example.admin.common.response.ResponseModel;
-import com.example.admin.common.tools.CaptchaUtils;
 import com.example.admin.entity.SystemAdmin;
 import com.example.admin.service.SystemAdminService;
 import com.example.admin.service.SystemMenuInfo;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.*;
-import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -57,7 +45,7 @@ public class IndexController {
 
     model.put("admin", admin);
 
-    return new ModelAndView("index", model);
+    return new ModelAndView("admin/index", model);
   }
 
   /**
@@ -82,7 +70,7 @@ public class IndexController {
 
     model.put("notifications",new ArrayList<>());
 
-    return new ModelAndView("console", model);
+    return new ModelAndView("admin/console", model);
   }
 
 

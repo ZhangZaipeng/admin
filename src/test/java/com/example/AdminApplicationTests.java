@@ -1,4 +1,4 @@
-package com.example.admin;
+package com.example;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
